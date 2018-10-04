@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Gi60s/matts-adder/issues"
   },
-  "homepage": "https://github.com/Gi60s/matts-adder#readme"
+  "homepage": "https://github.com/Gi60s/matts-adder#readme",
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
 }

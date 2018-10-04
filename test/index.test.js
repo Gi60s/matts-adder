@@ -16,4 +16,8 @@ describe('adder', () => {
         expect(adder('1,2')).to.equal(3)
     })
 
+    it('can delimit on new line too', () => {
+        expect(adder('1\n2,3')).to.equal(6)
+    })
+
 })

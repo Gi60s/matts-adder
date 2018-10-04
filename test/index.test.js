@@ -16,8 +16,4 @@ describe('adder', () => {
         expect(adder('1,2')).to.equal(3)
     })
 
-    it('throws an error when 3 numbers provided', () => {
-        expect(() => adder('1,2,3')).to.throw(Error)
-    })
-
 })

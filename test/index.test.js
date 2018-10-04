@@ -24,6 +24,10 @@ describe('adder', () => {
         expect(adder('//;\n1\n2;3')).to.equal(6)
     })
 
+    it('custom delimiter limited to one character', () => {
+        expect(() => adder('//;;\n1\n2;3')).to.throw(/Delimiters with multiple characters must be wrapped in square brackets: \[ and ]/)
+    })
+
     it('throws an exception for negative numbers', () => {
         expect(() => adder('1,2,-3,-4,5')).to.throw(/Negatives not allowed: -3, -4/)
     })
@@ -34,6 +38,10 @@ describe('adder', () => {
 
     it('ignores numbers bigger than 1000', () => {
         expect(adder('1001,1002,3,4')).to.equal(7)
+    })
+
+    it('can have delimiters of length > 1 when wrapped in square brackets', () => {
+        expect(adder('//[;;]\n1\n2;;3')).to.equal(6)
     })
 
 })

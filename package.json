@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Gi60s/matts-adder#readme",
   "devDependencies": {
+    "chai": "^4.2.0",
     "mocha": "^5.2.0"
   }
 }

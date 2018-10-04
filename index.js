@@ -26,7 +26,7 @@ function adder(string) {
     })
 
     let errMessage = ''
-    if (negativeNumbers.length) errMessage += 'Negative numbers not allowed: ' + negativeNumbers.join(', ')
+    if (negativeNumbers.length) errMessage += 'Negatives not allowed: ' + negativeNumbers.join(', ')
     if (errMessage) throw Error(errMessage)
 
     return result

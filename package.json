@@ -1,0 +1,19 @@
+{
+  "name": "matts-adder",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gi60s/matts-adder.git"
+  },
+  "author": "James Speirs <james.speirs@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/Gi60s/matts-adder/issues"
+  },
+  "homepage": "https://github.com/Gi60s/matts-adder#readme"
+}

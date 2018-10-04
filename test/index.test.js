@@ -13,7 +13,7 @@ describe('adder', () => {
     })
 
     it('can parse two numbers', () => {
-        expect(adder('1,2')).to.equal(1)
+        expect(adder('1,2')).to.equal(3)
     })
 
 })

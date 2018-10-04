@@ -28,4 +28,12 @@ describe('adder', () => {
         expect(() => adder('1,2,-3,-4,5')).to.throw(/Negatives not allowed: -3, -4/)
     })
 
+    it('adds the number 1000', () => {
+        expect(adder('1,1000')).to.equal(1001)
+    })
+
+    it('ignores numbers bigger than 1000', () => {
+        expect(adder('1001,1002,3,4')).to.equal(7)
+    })
+
 })

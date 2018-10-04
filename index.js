@@ -20,7 +20,7 @@ function adder(string) {
         const num = +v
         if (num < 0) {
           negativeNumbers.push(num)
-        } else {
+        } else if (num <= 1000) {
             result += num
         }
     })

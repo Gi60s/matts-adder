@@ -25,7 +25,7 @@ describe('adder', () => {
     })
 
     it('throws an exception for negative numbers', () => {
-        expect(() => adder('1,2,-3,-4,5')).to.throw(/Negative numbers not allowed: -3, -4, -5/)
+        expect(() => adder('1,2,-3,-4,5')).to.throw(/Negative numbers not allowed: -3, -4/)
     })
 
 })

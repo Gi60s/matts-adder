@@ -20,4 +20,8 @@ describe('adder', () => {
         expect(adder('1\n2,3')).to.equal(6)
     })
 
+    it('can add custom delimiter', () => {
+        expect(adder('//;\n1\n2;3')).to.equal(6)
+    })
+
 })

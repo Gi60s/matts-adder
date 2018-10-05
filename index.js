@@ -1,19 +1,29 @@
 'use strict'
 
-const rxInit = /^(?:\/\/(.+)$)?([\s\S]*)/m
-
 module.exports = adder
 
 function adder(string) {
     if (!string) return 0
     const negativeNumbers = []
 
-    const match = rxInit.exec(string)
-    const delimiter = match[1] || ','
-    const numbersString = match[2] || ''
+    const lines = string.split('\n')
+    const hasDelimiterLine = lines[0] && lines[0].startsWith('//')
+    const delimiterLine = hasDelimiterLine ? lines.shift().substr(2) : ','
+    if (delimiterLine.length === 0) throw Error('Invalid delimiter')
 
-    const rx = RegExp(escapeRegExp(delimiter) + '|\n')
-    const numbers = numbersString.split(rx)
+    const delimiters = []
+    if (delimiterLine.length === 1) {
+        delimiters.push(delimiterLine)
+    } else {
+        const rxDelimiters = /\[([^\]]+)]/g
+        let match
+        while (match = rxDelimiters.exec(delimiterLine)) delimiters.push(match[1])
+        if (!delimiters.length) throw Error(/Delimiters with multiple characters must be wrapped in square brackets/)
+    }
+
+    const rxString = delimiters.reduce((prev, curr) => prev + '|' + escapeRegExp(curr), '\n')
+    const rx = RegExp(rxString)
+    const numbers = lines.join('\n').split(rx)
 
     let result = 0
     numbers.forEach(v => {

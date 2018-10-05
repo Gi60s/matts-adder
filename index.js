@@ -1,6 +1,9 @@
 'use strict'
 
-module.exports = adder
+module.exports = {
+    adder,
+    StatefulAdder
+}
 
 function adder(string) {
     if (!string) return 0
@@ -44,4 +47,13 @@ function adder(string) {
 
 function escapeRegExp(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')
+}
+
+function StatefulAdder(string) {
+    this.add = string => {
+        this.history.push(string)
+        this.state += adder(string)
+    }
+    this.history = [ string || '' ]
+    this.state = adder(string)
 }

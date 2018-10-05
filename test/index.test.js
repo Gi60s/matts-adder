@@ -1,5 +1,5 @@
 'use strict';
-const adder = require('../index')
+const { adder, StatefulAdder } = require('../index')
 const expect = require('chai').expect
 
 describe('adder', () => {
@@ -50,6 +50,16 @@ describe('adder', () => {
 
     it('can have multiple multi-character delimiters', () => {
         expect(adder('//[;;][%=]\n1\n2;;3%=4')).to.equal(10)
+    })
+
+    it('has a stateful adder', () => {
+        const adder = new StatefulAdder('1001,1002,3,4')
+        adder.add('//[;;][%=]\n1\n2;;3%=4')
+        expect(adder.state).to.equal(17)
+        expect(adder.history).to.deep.equal([
+            '1001,1002,3,4',
+            '//[;;][%=]\n1\n2;;3%=4'
+        ])
     })
 
 })

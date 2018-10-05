@@ -25,7 +25,7 @@ describe('adder', () => {
     })
 
     it('custom delimiter limited to one character', () => {
-        expect(() => adder('//;;\n1\n2;3')).to.throw(/Delimiters with multiple characters must be wrapped in square brackets: \[ and ]/)
+        expect(() => adder('//;;\n1\n2;3')).to.throw(/Delimiters with multiple characters must be wrapped in square brackets/)
     })
 
     it('throws an exception for negative numbers', () => {
@@ -42,6 +42,14 @@ describe('adder', () => {
 
     it('can have delimiters of length > 1 when wrapped in square brackets', () => {
         expect(adder('//[;;]\n1\n2;;3')).to.equal(6)
+    })
+
+    it('can have multiple delimiters', () => {
+        expect(adder('//[;][%]\n1\n2;3%4')).to.equal(10)
+    })
+
+    it('can have multiple multi-character delimiters', () => {
+        expect(adder('//[;;][%=]\n1\n2;;3%=4')).to.equal(10)
     })
 
 })
